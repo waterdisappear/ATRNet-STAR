@@ -1,4 +1,4 @@
-<h1 align="center"> NUDT4MSTAR: A New Dataset and Benchmark Towards SAR Target Recognition in the Wild </h1> 
+<h1 align="center"> NUDT4MSTAR: A New Dataset and Benchmark\\Towards SAR Target Recognition in the Wild </h1> 
 
 <h5 align="center"><em> Yongxiang Liu, Weijie Li, Li Liu, Jie Zhou, Xuying Xiong, Bowen Peng, Yafei Song, Wei Yang, Tianpeng Liu, Zhen Liu, Xiang Li </em></h5>
 
