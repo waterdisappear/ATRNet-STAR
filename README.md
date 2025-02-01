@@ -8,6 +8,10 @@
   <a href="#Statement">Statement</a>
 </p >
 
+<p align="center">
+<a href="https://arxiv.org/abs/2501.13354"><img src="https://img.shields.io/badge/Paper-arxiv-red"></a>
+</p>
+
 ## Introduction
 
 This is the official repository for the dataset “NUDT4MSTAR: A New Dataset and Benchmark Towards SAR Target Recognition in the Wild”.
