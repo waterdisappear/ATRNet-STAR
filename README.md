@@ -8,8 +8,6 @@
   <a href="#ATRBench">ATRBench</a> |
   <a href="#Statement">Statement</a>
 </p >
-
-
 <p align="center">
 <a href="https://arxiv.org/abs/2501.13354"><img src="https://img.shields.io/badge/Paper-arxiv-red"></a>
 </p>
@@ -107,6 +105,6 @@ Table 2: **Classification results.** We use overall accuracy (%) as a metric, *i
 
 
 ## Statement
-- The first version will after before 2025.3.20.
+- The first version will release after 2025.3.20.
 - If you have any questions, please contact us at lwj2150508321@sina.com. 
 
