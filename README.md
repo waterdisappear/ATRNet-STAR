@@ -73,7 +73,7 @@ Dep.: Depression angle. Azi.: Target azimuth angle. Pol.: Polarization. # Img. (
 
 ### Classsification
 
-For classification based on amplitude data, we have chosen six computer vision methods ([VGG16](https://arxiv.org/abs/1409.1556), [ResNet18](https://arxiv.org/abs/1512.03385), [ResNet34](~\cite{he2016deep}, ConvNeXt~\cite{liu2022convnet}, ViT~\cite{dosovitskiy2020image}, and HiViT~\cite{zhang2023hivit}), [ConvNeXt](https://arxiv.org/abs/2201.03545)) and two SAR ATR methods ([HDANet](https://ieeexplore.ieee.org/document/10283916), [SARATR-X](https://ieeexplore.ieee.org/document/10856784)). We provide the codes and hyperparameter settings in the Pytorch environment, and the corresponding weights and result files can be downloaded via the dataset link.
+For classification based on amplitude data, we have chosen six computer vision methods ([VGG16](https://arxiv.org/abs/1409.1556), [ResNet18](https://arxiv.org/abs/1512.03385), [ResNet34](https://arxiv.org/abs/1512.03385), [ConvNeXt](https://arxiv.org/abs/2201.03545)) and two SAR ATR methods ([HDANet](https://ieeexplore.ieee.org/document/10283916), [SARATR-X](https://ieeexplore.ieee.org/document/10856784)). We provide the codes and hyperparameter settings in the Pytorch environment, and the corresponding weights and result files can be downloaded via the dataset link.
 
 Table 2: **Classification results.** We use overall accuracy (%) as a metric, *i.e.*, the number of correctly classified samples in proportion to the total number of samples. **Bolded** text indicates the best result, while <u>underlined</u> text is the next best result.
 
