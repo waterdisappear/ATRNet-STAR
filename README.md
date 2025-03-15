@@ -37,7 +37,7 @@ The absence of publicly available, large-scale, high-quality datasets for Synthe
 
 Here, we describe the experimental settings in Table 1, including 2 SOC settings sampled from similar distributions and 5 EOC settings with obvious condition and distribution shifts.
 
-**SOC and EOC settings -**SOC settings are those where the training and test sets have similar imaging conditions, and we have SOC-40 and SOC-50 settings. EOC settings are those where there is a significant domain shift between the training set and the test set, such as variation in imaging conditions and target state. 
+**SOC and EOC settings -** SOC settings are those where the training and test sets have similar imaging conditions, and we have SOC-40 and SOC-50 settings. EOC settings are those where there is a significant domain shift between the training set and the test set, such as variation in imaging conditions and target state. 
 
 *SOC-40* is created from a random data sample with a 7:3 training-to-test ratio. 
 
