@@ -108,3 +108,21 @@ Table 2: **Classification results.** We use overall accuracy (%) as a metric, *i
 - The first version will release after 2025.3.20.
 - If you have any questions, please contact us at lwj2150508321@sina.com. 
 
+- If you find our work is useful, please give us 🌟 in GitHub and cite our paper in the following BibTex format:
+```
+@article{liu2025atrnet,
+  title={ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild},
+  author = {{Liu}, Yongxiang and {Li}, Weijie and {Liu}, Li and {Zhou}, Jie and {Peng}, Bowen and {Song}, Yafei and {Xiong}, Xuying and {Yang}, Wei and {Liu}, Tianpeng and {Liu}, Zhen and {Li}, Xiang},
+  journal = {arXiv e-prints},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  year = 2025,
+  month = jan,
+  eid = {arXiv:2501.13354},
+  pages = {arXiv:2501.13354},
+  doi = {10.48550/arXiv.2501.13354},
+  archivePrefix = {arXiv},
+  eprint = {2501.13354},
+  primaryClass = {cs.CV},
+  adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250113354L},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
