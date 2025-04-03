@@ -18,7 +18,7 @@
 <p align="center">
     <a href="https://arxiv.org/abs/2501.13354"><img src="https://img.shields.io/badge/Paper-arxiv-red"></a>
     <a href="ATRNet_STAR_中文.pdf"><img src="https://img.shields.io/badge/论文-中文-800080"></a>
-    <a href="https://huggingface.co/datasets/waterdisappear/ATRNet-STAR"><img src="https://img.shields.io/badge/Download-huggface-F5C935"></a>
+    <a href="https://huggingface.co/datasets/waterdisappear/ATRNet-STAR"><img src="https://img.shields.io/badge/Download-Hugging Face-F5C935"></a>
     <a href="https://www.wjx.top/vm/YOHgMtK.aspx"><img src="https://img.shields.io/badge/下载-百度云-blue"></a>
 </p>
 
