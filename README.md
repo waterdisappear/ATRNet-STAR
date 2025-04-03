@@ -8,7 +8,9 @@
     <a href="#Motivation">Motivation</a> |
     <a href="#Data Acquisition">Data Acquisition</a> |
     <a href="#Statistical Analysis">Statistical Analysis</a> |
-    <a href="#Dataset Value">Dataset Value</a> |
+    <a href="#Dataset Value">Dataset Value</a> 
+</p >
+<p align="center">
     <a href="#ATRBench">ATRBench</a> |
     <a href="#Updates">Updates</a> |
     <a href="#Statement">Statement</a>
@@ -19,6 +21,7 @@
     <a href="https://huggingface.co/datasets/waterdisappear/ATRNet-STAR"><img src="https://img.shields.io/badge/Download-huggface-F5C935"></a>
     <a href="https://www.wjx.top/vm/YOHgMtK.aspx"><img src="https://img.shields.io/badge/下载-百度云-blue"></a>
 </p>
+
 
 
 This is the official repository for the dataset “ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild”. 
