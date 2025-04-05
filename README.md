@@ -22,9 +22,7 @@
     <a href="https://www.wjx.top/vm/YOHgMtK.aspx"><img src="https://img.shields.io/badge/下载-百度云-blue"></a>
 </p>
 
-
-
-This is the official repository for the dataset “ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild”. 
+This is the official repository for the dataset “ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild”. If you find our work is useful, please give us 🌟 in GitHub and cite our paper in the BibTex format at the end.
 <figure>
 <div align="center">
 <img src=Figure/FigureBeforeAbstract_00.jpg width="95%">
