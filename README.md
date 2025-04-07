@@ -58,9 +58,8 @@ The specific acquisition conditions of the ATRNet-STAR dataset are detailed in t
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
-padding: 2px;">Table 1: SOC and EOC settings of ATRBench derived from ATRNet-STAR. The imaging conditions in SOC are similar, while EOC considers variations in a single imaging condition. Simple scenes are sandstone and bare soil, and complex scenes are urban, factory, and woodland. The separate labeling of the ground distance and slant distance images results in their numbers of annotations not being strictly corresponding. \# Types.: Number of object types. 
+padding: 2px;">Table 1: SOC and EOC settings of ATRBench derived from ATRNet-STAR. The imaging conditions in SOC are similar, while EOC considers variations in a single imaging condition. Simple scenes are sandstone and bare soil, and complex scenes are urban, factory, and woodland. The separate labeling of the ground distance and slant distance images results in their numbers of annotations not being strictly corresponding. # Types.: Number of object types. 
 Dep.: Depression angle. Azi.: Target azimuth angle. Pol.: Polarization. # Img. (Ground): Number of images in ground range. # Img. (Slant): Number of images in slant range.</div>
-
 
 | Scene     | *\# Types* | Platform | Mode    | ***Band*** | ***Res. (m)*** | ***Pol.*** | Dep. (°)       | Azi. (°) | *Img. Size* | *\# Img.* |
 | --------- | ---------- | -------- | ------- | ---------- | -------------- | ---------- | -------------- | -------- | ----------- | --------- |
@@ -143,7 +142,7 @@ padding: 2px;">Timeline of SAR classification dataset. Compared to other dataset
 </div>
 </figure>
 
-**Need for ATRNet-STAR -** Researchers have struggled to construct many SAR target datasets for ATR tasks. Many SAR classification datasets have significantly improved data diversity. In particular, new SAR detection datasets (SARDet-100K, FAIR-CSAR) have emerged with 100,000 images. However, our previous research on SAR foundation models revealed that collecting public datasets yields fewer than 200,000 available target samples due to severe sample imbalance\textemdash, mainly ship detection datasets. As the inaugural phase of ATRNet, we focus on vehicle targets due to:
+**Need for ATRNet-STAR -** Researchers have struggled to construct many SAR target datasets for ATR tasks. Many SAR classification datasets have significantly improved data diversity. In particular, new SAR detection datasets (SARDet-100K, FAIR-CSAR) have emerged with 100,000 images. However, our previous research on SAR foundation models revealed that collecting public datasets yields fewer than 200,000 available target samples due to severe sample imbalance, mainly ship detection datasets. As the inaugural phase of ATRNet, we focus on vehicle targets due to:
 
 1. Recent datasets predominantly are targets based on spaceborne SAR with constrained imaging geometries, whereas airborne platforms offer higher resolution (0.1-0.3m) and flexible imaging conditions in complex scenes.
 2. Vehicle recognition has driven SAR ATR research for three decades since MSTAR in the 1990s, establishing mature research systems.
@@ -274,9 +273,9 @@ Based on the diversity of target classes, scenes, imaging conditions, and data f
 
 **Physical deep learning -** SAR images have unique properties, such as complex phase and polarization. Our dataset provides multi-format data to facilitate recognition studies leveraging these intrinsic attributes instead of only relying on quantized SAR magnitude images. In addition, detailed metadata can also provide more gains for SAR ATR.
 
-**Generative Models - **Beyond recognition tasks, our dataset enables controllable generation of target samples under diverse imaging conditions, as well as estimation of target parameters across varying acquisition scenarios.
+**Generative Models - ** Beyond recognition tasks, our dataset enables controllable generation of target samples under diverse imaging conditions, as well as estimation of target parameters across varying acquisition scenarios.
 
-We encourage researchers to propose new experimental settings and research issues based on this dataset. \emph{Don't hesitate to contact us if you get new ideas.
+We encourage researchers to propose new experimental settings and research issues based on this dataset. Don't hesitate to contact us if you get new ideas.
 
 ## ATRBench
 
