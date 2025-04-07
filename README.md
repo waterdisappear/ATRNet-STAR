@@ -196,12 +196,12 @@ We statistically analyze the number of civilian and military vehicle classes and
 
 <figure>
 <div align="left">
-<img src=Figure/fig7_target_info_00.jpg width="95%">
+<img src=Figure/fig7_target_info_00.png width="95%">
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
-padding: 2px;"> Demo images, classes, types, and sizes of 40 vehicles in ATRNet-STAR.
-Here are the SAR and corresponding RGB images. As we can see, the obvious difference between the vehicles in the SAR images is the scattering characteristic variation due to size and structure. Therefore, we classify various vehicle types based on their size and structure. Their size (length * width * height) measurements are listed in meters (m). Besides, it is worth noting that our SAR images are not in the ideal situation where the target is located right in the center of the demo image, just as in the MSTAR dataset, but has a random offset similar to the QinetiQ dataset.</div>
+padding: 2px;"> Demo images, subclasses, types, and sizes of 40 vehicles in ATRNet-STAR.
+Here are the SAR and corresponding objects. As we can see, the obvious difference between the vehicles in the SAR images is the scattering characteristic variation due to size and structure. Therefore, we classify various vehicle types based on their size and structure. Their size (length * width * height) measurements are listed in meters (m). Besides, it is worth noting that our SAR images are not in the ideal situation where the target is located right in the center of the demo image, just as in the MSTAR dataset, but has a random offset similar to the QinetiQ dataset.</div>
 </div>
 </figure>
 
