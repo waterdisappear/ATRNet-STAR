@@ -130,7 +130,9 @@ Subfigure (b) focuses on the number of publications related to SAR Automatic Tar
 </div>
 </figure>
 
+
 **Need for ATRNet -** The advent of big data has propelled the evolution of RS pre-training foundation models where large-scale pre-training enables efficient cross-task adaptation with minimal finetuning. However, the scarcity of large-scale standardized datasets restricts the development of generalizable data-driven SAR ATR methods compared to the success of foundation models in other RS sensors. The data sensitivity, acquisition costs, annotation difficulty, and complexity of SAR imaging hinder the establishment of open large-scale data ecosystems: More than 50% of SAR ATR studies still rely on the 1990s-era Moving and Stationary Target Acquisition and Recognition (MSTAR) dataset. In addition, non-standardized evaluation protocols across existing benchmarks impede objective algorithm comparison. Therefore, building a large SAR ATR dataset and benchmark is necessary to unlock new model capabilities in this field. We aim for **ATRNet**, a massive, diverse, and standard SAR target dataset benchmark for model and recognize target characteristics. 
+
 
 <figure>
 <div align="left">
