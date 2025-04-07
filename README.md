@@ -177,7 +177,7 @@ We present key characteristics and comparative statistics of our dataset relativ
 
 <figure>
 <div align="left">
-<img src=Figure/fig_target_category_00.jpg width="95%">
+<img src=Figure/fig_target_category.png width="95%">
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
@@ -190,6 +190,7 @@ We statistically analyze the number of civilian and military vehicle classes and
 (c) List of vehicle abbreviations.</div>
 </div>
 </figure>
+
 
 **Class distribution -** ATRNet-STAR dataset includes 4 classes, 21 subclasses and 40 types of vehicles with balanced samples. Relative to other SAR target datasets, our dataset's enhanced diversity introduces novel formidable challenges to the SAR target fine-grained recognition research. Moreover, adequate samples guarantee the availability of a substantial array of target classes across experimental settings, facilitating more diverse investigations.
 
