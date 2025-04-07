@@ -177,7 +177,7 @@ We present key characteristics and comparative statistics of our dataset relativ
 
 <figure>
 <div align="left">
-<img src=Figure/fig_target_category.png width="95%">
+<img src=Figure/fig_target_category.jpg width="95%">
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
@@ -192,11 +192,12 @@ We statistically analyze the number of civilian and military vehicle classes and
 </figure>
 
 
+
 **Class distribution -** ATRNet-STAR dataset includes 4 classes, 21 subclasses and 40 types of vehicles with balanced samples. Relative to other SAR target datasets, our dataset's enhanced diversity introduces novel formidable challenges to the SAR target fine-grained recognition research. Moreover, adequate samples guarantee the availability of a substantial array of target classes across experimental settings, facilitating more diverse investigations.
 
 <figure>
 <div align="left">
-<img src=Figure/fig7_target_info_00.png width="95%">
+<img src=Figure/fig7_target_info_00.jpg width="95%">
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
@@ -204,6 +205,7 @@ padding: 2px;"> Demo images, subclasses, types, and sizes of 40 vehicles in ATRN
 Here are the SAR and corresponding objects. As we can see, the obvious difference between the vehicles in the SAR images is the scattering characteristic variation due to size and structure. Therefore, we classify various vehicle types based on their size and structure. Their size (length * width * height) measurements are listed in meters (m). Besides, it is worth noting that our SAR images are not in the ideal situation where the target is located right in the center of the demo image, just as in the MSTAR dataset, but has a random offset similar to the QinetiQ dataset.</div>
 </div>
 </figure>
+
 
 **Object size -** The length, width, and height of our 40 objects are listed in Figure, and we can see that they have various structures, different sizes, and similar size ratios. Compared to another civilian vehicle dataset (Gotcha), our dataset has a wider range of target classes and size distribution.
 
