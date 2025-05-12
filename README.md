@@ -30,6 +30,8 @@ color: #999;
 padding: 2px;">Our ATRNet-STAR dataset contains 40 distinct target types, collected with the aim of replacing the outdated though widely used MSTAR dataset and making a significant contribution to the advancement of SAR ATR research.</div>
 </div>
 </figure>
+
+
 ## Updates
 
 - [x] Release of aligned quad polarizable data at .\Slant_Range\complex_float_quad.
@@ -49,6 +51,7 @@ padding: 2px;">Our ATRNet-STAR dataset contains 40 distinct target types, collec
 - [ ] Collecting more target samples from various classes (10%).
 
 
+
 ## Introduction
 
 As the first step in establishing a large-scale SAR target database, the ATRNet-STAR dataset achieves significant breakthroughs compared to the previous vehicle target benchmark MSTAR. Our team spent nearly two years completing scheme design, data acquisition/processing, and benchmarks. ATRNet-STAR comprises nearly 200,000 target images with comprehensive annotations. The dataset features:
@@ -66,6 +69,8 @@ To facilitate methodological innovation and comparative studies, our team develo
 - 15 representative methods covering state-of-the-art approaches
 
 Experimental results demonstrate that SAR Automatic Target Recognition (ATR) under complex conditions remains highly challenging. Notably, large-scale pretrained models exhibit relatively superior performance, suggesting that large pretraining could enhance cross-target recognition capabilities. This comprehensive dataset and experimental benchmark establish a new research platform for SAR ATR.
+
+
 
 ## User Manual
 
@@ -131,6 +136,8 @@ padding: 2px;">Table 2: XML annotations.</div>
 | depression_angle       | depression angle                        | 15°                        |
 | target_azimuth_angle   | azimuth angle between target and sensor | 0°                         |
 
+
+
 ## Motivation
 
 Synthetic Aperture Radar (SAR) imaging is capable of generating high-resolution imagery irrespective of lighting conditions and weather and has become an indispensable tool for Earth observation. SAR Remote Sensing (RS) data enables analysis and recognition of objects and scenes, which has become a valuable complement to other RS imagery. Consequently, as a fundamental and challenging field in RS image analysis, SAR Automatic Target Recognition (ATR), which autonomously detects and classifies objects of interest (e.g., vehicles, ships, aircraft, and buildings), has become an active research area for several decades. SAR ATR has a wide range of civilian and military applications, including global surveillance, military reconnaissance, urban management, disaster assessment, and emergency rescue. Despite the remarkable achievements over the past several decades in the field of SAR ATR, the accurate, robust, and efficient recognition of any target in an open world remains unresolved.
@@ -166,6 +173,8 @@ padding: 2px;">Timeline of SAR classification dataset. Compared to other dataset
 2. Vehicle recognition has driven SAR ATR research for three decades since MSTAR in the 1990s, establishing mature research systems.
 3. The 1990s-era MSTAR dataset, despite its seminal role, suffers from idealized acquisition conditions and saturated performance (near 99% accuracy), failing to reflect real-world complexities and support innovation in the 2020s.
 
+
+
 ## Data Acquisition
 
 Here, we present our data acquisition pipeline in terms of imaging, annotation, and product.
@@ -186,6 +195,8 @@ We annotate and cut to build target slices with corresponding metadata informati
 **Annotation -** Target classes and coordinates are annotated using rectangular box labels based on optical reference images and deployment records. Because of focusing on individual target signatures, all objects maintain specified separation distances during placement. Besides our vehicles, other vehicles in the scene are labeled as ``other''. After labeling, we acquired the target slices and added a random offset. 
 
 **Product -** We offer data products in two coordinate systems. The distance dimension of the slant range data is the line of sight direction, and we provide original complex data. The ground range images is projected to the ground truth distance and is processed with nonlinear quantization. The corresponding annotation files include basic image information and target, scene, and sensor parameters.
+
+
 
 ## Statistical Analysis
 
@@ -280,6 +291,8 @@ It can be noticed that the band and polarization can have a statistically signif
 
 **Quality control -** To ensure high-quality data, we considered challenges such as target and site hire, airspace applications, weather conditions, target placing, and data checking. Eight people completed the data acquisition over six months. In addition, 14 labelers and two inspectors performed the data annotation for about four months.  The entire project cost nearly two years.
 
+
+
 ## Dataset Value
 
 Based on the diversity of target classes, scenes, imaging conditions, and data format with detailed annotation, we recommend that this dataset be used for SAR studies in the following areas.
@@ -298,13 +311,18 @@ Based on the diversity of target classes, scenes, imaging conditions, and data f
 
 We encourage researchers to propose new experimental settings and research issues based on this dataset. Don't hesitate to contact us if you get new ideas.
 
+
+
 ## ATRBench
 
 We consider 7 experimental settings with 2 data formats as classification and detection benchmarks from this dataset, named **ATRBench**. These experimental settings include 2 SOC settings sampled from similar distributions and 5 EOC settings with obvious distribution shifts. The data formats consist of magnitude images in the ground range coordinate system and complex images in the slant range coordinate system. 
 
 Please refer to <a href="ATRBench/README.md">readme</a>. 
 
+
+
 ## Statement
+
 - If you have any questions, please contact us at lwj2150508321@sina.com. 
 
 - If you find our work is useful, please give us a star 🌟 in GitHub and cite our paper in the following BibTex format:
