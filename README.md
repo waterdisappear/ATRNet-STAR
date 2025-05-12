@@ -8,11 +8,8 @@
     <a href="#Motivation">Motivation</a> |
     <a href="#Data Acquisition">Data Acquisition</a> |
     <a href="#Statistical Analysis">Statistical Analysis</a> |
-    <a href="#Dataset Value">Dataset Value</a> 
-</p >
-<p align="center">
+    <a href="#Dataset Value">Dataset Value</a> |
     <a href="#ATRBench">ATRBench</a> |
-    <a href="#Updates">Updates</a> |
     <a href="#Statement">Statement</a>
 </p >
 <p align="center">
@@ -21,6 +18,7 @@
     <a href="https://huggingface.co/datasets/waterdisappear/ATRNet-STAR"><img src="https://img.shields.io/badge/Download-Hugging Face-F5C935"></a>
     <a href="https://www.wjx.top/vm/YOHgMtK.aspx"><img src="https://img.shields.io/badge/下载-百度云-blue"></a>
 </p>
+
 
 This is the official repository for the dataset “ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild”. If you find our work is useful, please give us a star 🌟 in GitHub and cite our paper in the BibTex format at the end.
 <figure>
@@ -32,6 +30,24 @@ color: #999;
 padding: 2px;">Our ATRNet-STAR dataset contains 40 distinct target types, collected with the aim of replacing the outdated though widely used MSTAR dataset and making a significant contribution to the advancement of SAR ATR research.</div>
 </div>
 </figure>
+## Updates
+
+- [x] Release of aligned quad polarizable data at .\Slant_Range\complex_float_quad.
+
+  <figure>
+  <div align="center">
+  <img src=Figure/fig_quad.png width="95%">
+  <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+  display: inline-block;
+  color: #999;
+  padding: 2px;">Demo of aligned quad complex data.</div>
+  </div>
+  </figure>
+
+- [ ] Constructing rotated box detection and multi-resolution data (5%).
+
+- [ ] Collecting more target samples from various classes (10%).
+
 
 ## Introduction
 
@@ -287,12 +303,6 @@ We encourage researchers to propose new experimental settings and research issue
 We consider 7 experimental settings with 2 data formats as classification and detection benchmarks from this dataset, named **ATRBench**. These experimental settings include 2 SOC settings sampled from similar distributions and 5 EOC settings with obvious distribution shifts. The data formats consist of magnitude images in the ground range coordinate system and complex images in the slant range coordinate system. 
 
 Please refer to <a href="ATRBench/README.md">readme</a>. 
-
-## Updates
-
-- [ ] Release of aligned quad polarizable data (20%). 
-- [ ] Constructing rotated box detection and multi-resolution data (5%).
-- [ ] Collecting more target samples from various classes (10%).
 
 ## Statement
 - If you have any questions, please contact us at lwj2150508321@sina.com. 
