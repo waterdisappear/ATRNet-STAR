@@ -51,6 +51,8 @@ Dep.: Depression angle. Azi.: Target azimuth angle. Pol.: Polarization. # Img. (
 
 For classification based on amplitude data, we have chosen six computer vision methods ([VGG16](https://arxiv.org/abs/1409.1556), [ResNet18](https://arxiv.org/abs/1512.03385), [ResNet34](https://arxiv.org/abs/1512.03385), [ConvNeXt](https://arxiv.org/abs/2201.03545)) and two SAR ATR methods ([HDANet](https://ieeexplore.ieee.org/document/10283916), [SARATR-X](https://ieeexplore.ieee.org/document/10856784)). We provide the codes and hyperparameter settings in the Pytorch environment, and the corresponding weights and result files can be downloaded via the dataset link.
 
+For classification based on complex data, we have chosen two SAR ATR methods ([MS-CVNet](https://github.com/Crush0416/MS-CVNets-a-novel-complex-valued-neural-networks-for-SAR-ATR), [LDSF](https://ieeexplore.ieee.org/document/10753051)). 
+
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
