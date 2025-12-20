@@ -79,16 +79,20 @@ The specific acquisition conditions of the ATRNet-STAR dataset are detailed in t
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
-padding: 2px;">Table 1: SOC and EOC settings of ATRBench derived from ATRNet-STAR. The imaging conditions in SOC are similar, while EOC considers variations in a single imaging condition. Simple scenes are sandstone and bare soil, and complex scenes are urban, factory, and woodland. The separate labeling of the ground distance and slant distance images results in their numbers of annotations not being strictly corresponding. # Types.: Number of object types. 
-Dep.: Depression angle. Azi.: Target azimuth angle. Pol.: Polarization. # Img. (Ground): Number of images in ground range. # Img. (Slant): Number of images in slant range.</div>
+padding: 2px;">
+Table 1: Acquisition parameters of open-source ATRNet-STAR.}
+We segment the targets with fixed-size slices and random offsets to investigate their characteristics and aim for robust recognition under different collection conditions. We varied the target location in urban and factory scenes and collected data at the factory several times. In addition, some targets cannot be labeled due to heavy occlusion.
+The carrier frequency of the X-band is 9.6 GHz, and that of the Ku-band is 14.6 GHz, both with a bandwidth of 1200 MHz. The platform flight speed is 10 m/s, and the pulse repetition frequency is 124.998 Hz. The flight altitude corresponds to different depression angles.
+# Types.: Number of object types. Res.: Resolution. Pol.: Polarization. Dep.: Depression angle. Azi.: Target azimuth angle interval. Img. Size: image size. # Img.: Number of images in ground and slant range coordinate systems.
+</div>
 
-| Scene     | *\# Types* | Platform | Mode    | ***Band*** | ***Res. (m)*** | ***Pol.*** | Dep. (°)       | Azi. (°) | *Img. Size* | *\# Img.* |
-| --------- | ---------- | -------- | ------- | ---------- | -------------- | ---------- | -------------- | -------- | ----------- | --------- |
-| City      | 40         | airborne | strimap | X          | 0.12~0.15      | quad       | 15, 30, 45, 60 | 5        | 128         | 83,465    |
-| Factory   | 40         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 30       | 128         | 63,597    |
-| Sandstone | 40         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 30       | 128         | 30,720    |
-| Woodland  | 11         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 30       | 128         | 8,094     |
-| Bare soil | 11         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 30       | 128         | 8,448     |
+| Scene     | *\# Types* | Platform | Mode    | ***Band*** | ***Res. (m)*** | ***Pol.*** | Dep. (°)       | Altitude (m)       | Azi. (°) | *Img. Size* | *\# Img.* |
+| --------- | ---------- | -------- | ------- | ---------- | -------------- | ---------- | -------------- | ------------------ | -------- | ----------- | --------- |
+| City      | 40         | airborne | strimap | X          | 0.12~0.15      | quad       | 15, 30, 45, 60 | 150, 300, 300, 400 | 5        | 128         | 83,465    |
+| Factory   | 40         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 120, 300, 320, 400 | 30       | 128         | 63,597    |
+| Sandstone | 40         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 120, 300, 300, 300 | 30       | 128         | 30,720    |
+| Woodland  | 11         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 120, 300, 300, 300 | 30       | 128         | 8,094     |
+| Bare soil | 11         | airborne | strimap | X/Ku       | 0.12~0.15      | quad       | 15, 30, 45, 60 | 120, 300, 300, 300 | 30       | 128         | 8,448     |
 
 The current open-source version comprises two data formats:
 
