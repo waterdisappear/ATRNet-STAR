@@ -46,10 +46,11 @@ padding: 2px;">Our ATRNet-STAR dataset contains 40 distinct target types, collec
   </div>
   </figure>
 
-- [ ] Constructing rotated box detection and multi-resolution data (5%).
+- [ ] Constructing rotated box detection data (35%).
 
+- [ ] Releasing raw data (10%).
+      
 - [ ] Collecting more target samples from various classes (10%).
-
 
 
 ## Introduction
