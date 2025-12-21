@@ -85,7 +85,7 @@ padding: 2px;">Table 2: Classification results. We use overall accuracy (%) as a
 
 ### Detection
 
-
+All codes and weights are upload to huggface and baiduyun.
 
 ## Statement
 - The first version will release after 2025.3.20.
