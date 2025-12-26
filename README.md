@@ -47,11 +47,10 @@ padding: 2px;">Our ATRNet-STAR dataset contains 40 distinct target types, collec
   </figure>
 
 - [ ] Constructing rotated box detection data (35%).
-
-- [ ] Releasing raw data (10%).
-      
+     
 - [ ] Collecting more target samples from various classes (10%).
 
+To facilitate further communication, researchers are advised to refer to the relevant documentation and discuss specific data needs with us. We will evaluate whether the requested data can be provided without violating confidentiality agreements. For information regarding the release of raw data, please refer to the <a href="Raw_data.md">Raw_data</a> document to see what is available.
 
 ## Introduction
 
