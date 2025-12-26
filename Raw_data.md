@@ -2,16 +2,6 @@
 
 The radar output is organized into the following main directories:
 
-<figure>
-<div align="center">
-<img src=Figure/framework.png width="95%">
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-display: inline-block;
-color: #999;
-padding: 2px;">Radar Data Processing Workflow. This flowchart illustrates the standardized end-to-end workflow for synthetic aperture radar (SAR) data processing, from raw measurements to final analysis-ready products. The process begins with the ingestion and fusion of raw GPS/IMU and radar echo data. Core image formation, aided by motion-compensated trajectory data, produces the foundational Single Look Complex (SLC) image in slant-range geometry. This SLC serves as the central input for several independent, parallel processing modules: the Geometric Module performs terrain correction, resampling, mosaicking, and geocoding to produce georeferenced ground-range maps; the Polarimetry Module generates Pauli-decomposed false-color SLCs for scattering analysis; and the Autofocus (PGA) Module enhances image focus. A Quantization Module can be applied to various image types (SLCs, ground-range images) to generate 8-bit or 16-bit TIFF visualizations. Auxiliary parameter files (AUX/XML) are generated throughout to document the processing chain. </div>
-</div>
-</figure>
-
 *   **Assistfile:** Contains auxiliary data, including POS data for positioning and attitude determination.
 *   **Rawfile:** Stores the raw radar echo data.
 *   **Result:** Holds the final imaging results.
@@ -55,3 +45,15 @@ The core SAR image data from the processing chain consists of:
 1.  **Complex Images (SLC):** Primary full-resolution complex data.
 2.  **Quantified Images (TIF):** Visualizable intensity images (slant-range or ground-range).
 3.  **Auxiliary Files (AUX):** Supporting parameter and metadata files.
+
+<figure>
+<div align="center">
+<img src=Figure/framework.png width="95%">
+<div style="color:orange; border-bottom: 1px solid #d9d9d9;
+display: inline-block;
+color: #999;
+padding: 2px;">Radar Data Processing Workflow. </div>
+</div>
+</figure>
+
+This flowchart illustrates the standardized end-to-end workflow for synthetic aperture radar (SAR) data processing, from raw measurements to final analysis-ready products. The process begins with the ingestion and fusion of raw GPS/IMU and radar echo data. Core image formation, aided by motion-compensated trajectory data, produces the foundational Single Look Complex (SLC) image in slant-range geometry. This SLC serves as the central input for several independent, parallel processing modules: the Geometric Module performs terrain correction, resampling, mosaicking, and geocoding to produce georeferenced ground-range maps; the Polarimetry Module generates Pauli-decomposed false-color SLCs for scattering analysis; and the Autofocus (PGA) Module enhances image focus. A Quantization Module can be applied to various image types (SLCs, ground-range images) to generate 8-bit or 16-bit TIFF visualizations. Auxiliary parameter files (AUX/XML) are generated throughout to document the processing chain.
