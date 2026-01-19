@@ -45,7 +45,19 @@ padding: 2px;">Our ATRNet-STAR dataset contains 40 distinct target types, collec
   padding: 2px;">Demo of aligned quad complex data.</div>
   </div>
   </figure>
+  
+- [x] Release of RGB data at .\Auxiliary_data\RGB.7z.
 
+  <figure>
+  <div align="center">
+  <img src=Figure/fig_RGB.png width="95%">
+  <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+  display: inline-block;
+  color: #999;
+  padding: 2px;">Demo of RGB data.</div>
+  </div>
+  </figure>
+  
 - [ ] Constructing rotated box detection data (35%).
      
 - [ ] Collecting more target samples from various classes (10%).
