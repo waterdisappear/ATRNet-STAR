@@ -17,6 +17,8 @@
     <a href="ATRNet_STAR_中文.pdf"><img src="https://img.shields.io/badge/论文-中文-800080"></a>
     <a href="https://huggingface.co/datasets/waterdisappear/ATRNet-STAR"><img src="https://img.shields.io/badge/Download-Hugging Face-F5C935"></a>
     <a href="https://www.wjx.top/vm/YOHgMtK.aspx"><img src="https://img.shields.io/badge/下载-百度云-blue"></a>
+	<a href="https://radars.ac.cn/web/data/getData?dataType=GDHuiYan-ATRNet"><img src="https://img.shields.io/badge/下载-雷达学报-red"></a>
+    <a href="https://www.scidb.cn/detail?dataSetId=d9ea44937cb94fba9befe9cdb15ffeed"><img src="https://img.shields.io/badge/下载-科学数据银行-purple"></a>	
 </p>
 
 
