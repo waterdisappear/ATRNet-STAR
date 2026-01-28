@@ -346,14 +346,14 @@ Please refer to <a href="ATRBench/README.md">readme</a>.
 - If you find our work is useful, please give us a star 🌟 in GitHub and cite our paper in the following BibTex format:
 
 ```
-@misc{liu2025atrnet,
-	title={{ATRNet-STAR}: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild}, 
+@ARTICLE{liu2025atrnet,
+	title={{ATRNet-STAR}: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild},
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
 	author={Yongxiang Liu and Weijie Li and Li Liu and Jie Zhou and Bowen Peng and Yafei Song and Xuying Xiong and Wei Yang and Tianpeng Liu and Zhen Liu and Xiang Li},
-	year={2025},
-	eprint={2501.13354},
-	archivePrefix={arXiv},
-	primaryClass={cs.CV},
-	url={https://arxiv.org/abs/2501.13354},
+    year={2025},
+    volume={},
+    number={},
+    pages={},
 }
 
 @ARTICLE{li2025saratr,
