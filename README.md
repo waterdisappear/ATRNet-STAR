@@ -13,6 +13,7 @@
     <a href="#Statement">Statement</a>
 </p >
 <p align="center">
+	<a href="https://ieeexplore.ieee.org/document/11367309/authors#authors"><img src="https://img.shields.io/badge/Paper-TPAMI-blue"></a>
     <a href="https://arxiv.org/abs/2501.13354"><img src="https://img.shields.io/badge/Paper-arxiv-red"></a>
     <a href="ATRNet_STAR_中文.pdf"><img src="https://img.shields.io/badge/论文-中文-800080"></a>
     <a href="https://huggingface.co/datasets/waterdisappear/ATRNet-STAR"><img src="https://img.shields.io/badge/Download-Hugging Face-F5C935"></a>
@@ -347,13 +348,14 @@ Please refer to <a href="ATRBench/README.md">readme</a>.
 
 ```
 @ARTICLE{liu2026atrnet,
-	title={{ATRNet-STAR}: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild},
-    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
-	author={Yongxiang Liu and Weijie Li and Li Liu and Jie Zhou and Bowen Peng and Yafei Song and Xuying Xiong and Wei Yang and Tianpeng Liu and Zhen Liu and Xiang Li},
-    year={2026},
-    volume={},
-    number={},
-    pages={},
+  author={Liu, Yongxiang and Li, Weijie and Liu, Li and Zhou, Jie and Peng, Bowen and Song, Yafei and Xiong, Xuying and Yang, Wei and Liu, Tianpeng and Liu, Zhen and Li, Xiang},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={{ATRNet-STAR}: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={1-18},
+  doi={10.1109/TPAMI.2026.3658649}
 }
 
 @ARTICLE{li2025saratr,
