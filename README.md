@@ -60,7 +60,7 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
 ### 📌 Notes for Researchers
 
 To facilitate further communication, researchers are advised to refer to the relevant documentation and discuss specific data needs with us. We will evaluate whether the requested data can be provided without violating confidentiality agreements.  
-For information regarding the release of raw data, please refer to the `Raw_data` document to see what is available.
+For information regarding the release of raw data, please refer to the [Raw Data Documentation](Documentation/raw_data.md) to see what is available.
 
 ---
 
