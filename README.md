@@ -42,11 +42,11 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
 
 - **Aligned quad‑polarization data (complex float)**  
   Location: `.\Slant_Range\complex_float_quad`  
-  *Demo script for aligned quad‑polarization complex data is provided.*
+  *[Demo script](Figure/fig_quad.png) for aligned quad‑polarization complex data is provided.*
 
 - **RGB auxiliary data**  
   Location: `.\Auxiliary_data\RGB.7z`  
-  *Demo script for RGB data is provided.*
+  *[Demo script](Figure/fig_RGB.png) for RGB data is provided.*
 
 - **Raw data (original full‑scene SAR images)**  
   Location: `.\Origin`  
@@ -60,7 +60,7 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
 ### 📌 Notes for Researchers
 
 To facilitate further communication, researchers are advised to refer to the relevant documentation and discuss specific data needs with us. We will evaluate whether the requested data can be provided without violating confidentiality agreements.  
-For information regarding the release of raw data, please refer to the [Raw Data Documentation](Documentation/raw_data.md) to see what is available.
+For information regarding the release of raw data, please refer to the [Raw Data Documentation](Documentation/Raw_data.md) to see what is available.
 
 ---
 
