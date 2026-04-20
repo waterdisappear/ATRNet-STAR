@@ -1,5 +1,6 @@
 import sys
 sys.path.append('..')
+import os
 import torch
 import numpy as np
 import re
@@ -10,14 +11,14 @@ import torch.nn as nn
 import collections
 from functools import partial
 import torchvision.transforms as transforms
-from utils.DataLoad import load_data
+from utils.DataLoad import load_data, load_data_with_class_mapping
 from utils.TrainTest import model_train, model_val, model_test
 from model.HiVit import HiViT, HiViT_base
 
 def parameter_setting():
     # argparse settings
     parser = argparse.ArgumentParser(description='Origin Input')
-    parser.add_argument('--data_path', type=str, default="../地距/EOC_scene/",
+    parser.add_argument('--data_path', type=str, default="../../地距/EOC_scene/",
                         help='where data is stored')
     parser.add_argument('--GPU_ids', type=int, default=0,
                         help='GPU ids')
@@ -33,7 +34,19 @@ def parameter_setting():
                         help='K-fold')
     parser.add_argument('--seed', type=int, default=0,
                         help='random seed (default: 1)')
+    # test-only by default
+    parser.add_argument('--weights', type=str, default="",
+                        help='path to model weights (.pth) for test-only')
+    parser.add_argument('--test_only', action='store_true', default=True,
+                        help='only run evaluation using --weights (default: enabled)')
+    parser.add_argument('--train', dest='test_only', action='store_false',
+                        help='disable test-only mode and run training')
     args = parser.parse_args()
+    if not args.weights:
+        here = os.path.dirname(os.path.abspath(__file__))
+        w1 = os.path.join(here, 'model', 'EOC_scene.pth')
+        w2 = os.path.join(here, 'Model', 'EOC_scene.pth')
+        args.weights = w1 if os.path.exists(w1) else w2
     return args
 
 def interpolate_pos_embed(model, checkpoint_model):
@@ -72,13 +85,42 @@ if __name__ == '__main__':
     # transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # 归一化
     ])
 
-    train_all = load_data(arg.data_path + 'train',data_transform)
-    test_set = load_data(arg.data_path + 'test',data_transform)
-    test_set_1 = load_data(arg.data_path + 'test_urban',data_transform)
-    test_set_2 = load_data(arg.data_path + 'test_woodland',data_transform)
-    test_set_3 = load_data(arg.data_path + 'test_factory',data_transform)
+    train_all = load_data(arg.data_path + 'train', data_transform)
+    global_class_to_idx = train_all.class_to_idx
+    arg.classes = len(train_all.classes)
+
+    test_set = load_data_with_class_mapping(arg.data_path + 'test', data_transform, global_class_to_idx)
+    test_set_1 = load_data_with_class_mapping(arg.data_path + 'test_urban', data_transform, global_class_to_idx)
+    test_set_2 = load_data_with_class_mapping(arg.data_path + 'test_woodland', data_transform, global_class_to_idx)
+    test_set_3 = load_data_with_class_mapping(arg.data_path + 'test_factory', data_transform, global_class_to_idx)
 
     torch.cuda.set_device(arg.GPU_ids)
+
+    def _load_weights_into_model(model, weights_path: str):
+        state = torch.load(weights_path, map_location="cpu")
+        if isinstance(state, dict) and "state_dict" in state and isinstance(state["state_dict"], dict):
+            state = state["state_dict"]
+        if isinstance(state, dict) and any(k.startswith("module.") for k in state.keys()):
+            state = {k[len("module."):]: v for k, v in state.items()}
+        model.load_state_dict(state, strict=True)
+        return model
+
+    if arg.test_only:
+        model = HiViT_base(arg.classes)
+        model = _load_weights_into_model(model, arg.weights)
+        test_loader = torch.utils.data.DataLoader(test_set, batch_size=arg.batch_size, shuffle=False)
+        test_loader_1 = torch.utils.data.DataLoader(test_set_1, batch_size=arg.batch_size, shuffle=False)
+        test_loader_2 = torch.utils.data.DataLoader(test_set_2, batch_size=arg.batch_size, shuffle=False)
+        test_loader_3 = torch.utils.data.DataLoader(test_set_3, batch_size=arg.batch_size, shuffle=False)
+
+        acc = model_test(model, test_loader)
+        acc_1 = model_test(model, test_loader_1)
+        acc_2 = model_test(model, test_loader_2)
+        acc_3 = model_test(model, test_loader_3)
+        print('test accuracy is {}, {}, {}, {}'.
+              format(acc, acc_1, acc_2, acc_3))
+        sys.exit(0)
+
     for k_F in tqdm(range(arg.fold)):
         # train_set, val_set = torch.utils.data.random_split(train_all, [len(train_all) - int(len(train_all) / arg.fold),
         #                                                                int(len(train_all) / arg.fold)])

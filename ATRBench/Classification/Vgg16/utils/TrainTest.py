@@ -101,7 +101,7 @@ def model_train(model, data_loader, opt, sch):
         sch.step()
     print("Train Accuracy is:{:.2f} %: ".format(100. * correct / len(data_loader.dataset)))
     return
-
+import gc
 def model_test(model, test_loader):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -111,11 +111,13 @@ def model_test(model, test_loader):
     real_all = np.array([[]]).reshape((0, 1))
     model.eval()
     with torch.no_grad():
-        for data, target in test_loader:
+        for data, target in tqdm(test_loader):
             data, target = data.to(device), target.to(device)
             output = model(data)
             pred = output.max(1, keepdim=True)[1]  # get the index of the max log-probability
             correct += pred.eq(target.view_as(pred)).sum().item()
+            del data, target, output, pred
+            # gc.collect()
     # print("Test Accuracy is:{:.2f} %: ".format(100. * correct / len(test_loader.dataset)))
     return 100. * correct / len(test_loader.dataset)
 

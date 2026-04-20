@@ -111,7 +111,7 @@ def model_test(model, test_loader):
     real_all = np.array([[]]).reshape((0, 1))
     model.eval()
     with torch.no_grad():
-        for data, target in test_loader:
+        for data, target in tqdm(test_loader):
             data, target = data.to(device), target.to(device)
             output = model(data)
             pred = output.max(1, keepdim=True)[1]  # get the index of the max log-probability

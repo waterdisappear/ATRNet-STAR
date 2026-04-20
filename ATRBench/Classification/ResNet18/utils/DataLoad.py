@@ -87,3 +87,31 @@ def load_data(file_dir, transform):
     data_set = datasets.ImageFolder(file_dir, transform=transform)
     return data_set
 
+
+def load_data_with_class_mapping(file_dir, transform, class_to_idx):
+    """
+    Load an ImageFolder dataset but force its targets to follow a given
+    class_to_idx mapping (typically from the training set), so that label
+    indices are consistent across different test folders.
+    """
+    ds = datasets.ImageFolder(file_dir, transform=transform)
+
+    remapped_samples = []
+    missing = set()
+    for path, local_idx in ds.samples:
+        class_name = ds.classes[local_idx]
+        if class_name not in class_to_idx:
+            missing.add(class_name)
+            continue
+        remapped_samples.append((path, int(class_to_idx[class_name])))
+
+    if missing:
+        raise ValueError(
+            f"Classes in '{file_dir}' not found in provided class_to_idx: {sorted(missing)}"
+        )
+
+    ds.samples = remapped_samples
+    ds.targets = [t for _, t in remapped_samples]
+    ds.class_to_idx = dict(class_to_idx)
+    return ds
+
