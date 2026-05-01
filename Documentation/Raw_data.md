@@ -48,7 +48,7 @@ The core SAR image data from the processing chain consists of:
 
 <figure>
 <div align="center">
-<img src=Figure/framework.png width="95%">
+<img src=../Figure/framework.png width="95%">
 <div style="color:orange; border-bottom: 1px solid #d9d9d9;
 display: inline-block;
 color: #999;
