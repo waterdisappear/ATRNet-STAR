@@ -36,7 +36,7 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
 
 ---
 
-## 📢 Updates (2026-04-05)
+## 📢 Updates (2026-05-01)
 
 ### ✅ Released Data
 
