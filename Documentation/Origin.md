@@ -1,25 +1,28 @@
-# ATRNet-STAR Subset – Sandstone (30° Grazing Angle, 0° Azimuth)
+# ATRNet-STAR Subset – Sandstone (30° Grazing Angle, 0°–330° Azimuth, 30° Step)
 
-This subset contains a single strip (STR1) of Ku-band fully polarimetric SAR data acquired over a sandstone scene with a grazing angle of 30° and an azimuth angle of 0°. It is provided as a sample for researchers who need full-scene data, raw echoes, and auxiliary files.
+This subset contains 12 Ku-band fully polarimetric SAR acquisitions over a sandstone scene with a grazing angle of 30° and azimuth angles spanning 0°–330° in 30° increments (12 azimuth settings). It is provided as a sample for researchers who need large image, raw echoes, and auxiliary files across multiple viewing directions.
 
 ## Data Overview
 - Target scene: Sandstone (terrain type)
 - Grazing angle: 30°
-- Azimuth angle: 0°
+- Azimuth angles: 0°, 30°, 60°, 90°, 120°, 150°, 180°, 210°, 240°, 270°, 300°, 330° (30° step; 12 files/sets)
 - Band: Ku
-- Polarizations: HH, HV, VH, VV (where available; see file naming)
-- Strip ID: STR1
+- Polarizations: HH, HV, VH, VV
+- Strip IDs: STR1–STR12 (see per-azimuth subfolders)
 - Azimuth starting pulse: 1024 (as indicated by azbias1024 in filenames)
 
 ## Folder Structure
 
-Subset_Sandstone_30deg_0deg/
-├── Annotation/ # Annotation files (target bounding boxes, categories, etc.)
-├── Assistfile/ # Auxiliary data (radar parameters, trajectory, attitude)
-├── Rawfile/          # Raw echo data (binary, complex)
-├── Result/           # GeoTIFF images and SLC files (focused SAR products)
+Origin/
+├── Subset_Sandstone/
+│   ├── Annotation/   # Annotation files (per azimuth folder, target bounding boxes, categories, etc.)
+│   ├── Assistfile/   # Auxiliary data (per azimuth folder; radar parameters, trajectory, attitude)
+│   ├── Rawfile/      # Raw echo data (per azimuth folder; binary, complex)
+│   └── Result/       # Focused products (per azimuth folder; GeoTIFF/SLC)
 ├── Scripts/          # MATLAB scripts to read and visualise the data
-└── README.md         # This file
+└── Readme.md         # This file
+
+Each data folder under `Subset_Sandstone/` is organized by azimuth, e.g. `30deg_0azi_ID1`, `30deg_30azi_ID7`, …, `30deg_330azi_ID12`.
 
 ## Detailed File Descriptions
 
@@ -33,11 +36,11 @@ Contains annotation files that provide ground‑truth labels for the targets in 
 ### 2. Assistfile/
 Contains auxiliary files that describe radar system parameters, platform trajectory, and attitude.
 
-| File pattern                      | Description                                                  |
-| --------------------------------- | ------------------------------------------------------------ |
-| `AUX_KuSAR_*_STR1_azbias1024.dat` | Binary parameter file (radar settings, geometry, Doppler, etc.). Read with `ParaRead.m`. |
-| `AUX_KuSAR_*_STR1_azbias1024.log` | Text log file (may contain additional metadata).             |
-| `RAW_XSAR_*.xml`                  | XML metadata describing the raw data acquisition.            |
+| File pattern                       | Description                                                  |
+| ---------------------------------- | ------------------------------------------------------------ |
+| `AUX_KuSAR_*_STR*_azbias1024.dat`   | Binary parameter file (radar settings, geometry, Doppler, etc.). Read with `ParaRead.m`. |
+| `AUX_KuSAR_*_STR*_azbias1024.log`   | Text log file (may contain additional metadata).             |
+| `RAW_XSAR_*_STR*_azbias1024*.xml`   | XML metadata describing the raw data acquisition (pattern may vary by azimuth folder). |
 
 **Polarization variants** (replace `*` with `H1H1`, `H1V1`, `V1H1`, `V1V1`):
 - `H1H1` → HH
@@ -48,18 +51,18 @@ Contains auxiliary files that describe radar system parameters, platform traject
 ### 3. Rawfile/
 Contains the raw radar echo data (before range compression or focusing).
 
-| File                                | Description                                                  |
-| ----------------------------------- | ------------------------------------------------------------ |
-| `RAW_XSAR_20240429_182418_STR1.dat` | Raw echo data in binary format (complex, interleaved I/Q). Use `RawDataRead.m` to inspect. |
+| File pattern              | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| `RAW_XSAR_*_STR*.dat`     | Raw echo data in binary format (complex, interleaved I/Q). Use `RawDataRead.m` to inspect. |
 
 ### 4. Result/
 Contains focused SAR products: GeoTIFF images (amplitude) and Single Look Complex (SLC) files.
 
-| File type   | Example                              | Description                                  |
-| ----------- | ------------------------------------ | -------------------------------------------- |
-| `DOM_*.tif` | `DOM_KuSAR_H1H1_STR1_azbias1024.tif` | Ground‑range detected image (GeoTIFF).       |
-| `IMG_*.tif` | `IMG_KuSAR_H1H1_STR1_azbias1024.tif` | Slant‑range detected image (GeoTIFF).        |
-| `*.slc`     | `SLC_KuSAR_H1H1_STR1_azbias1024.slc` | Single Look Complex (phase‑preserving) data. |
+| File type   | Example                               | Description                                  |
+| ----------- | ------------------------------------- | -------------------------------------------- |
+| `DOM_*.tif` | `DOM_KuSAR_H1H1_STR*_azbias1024.tif`  | Ground‑range detected image (GeoTIFF).       |
+| `IMG_*.tif` | `IMG_KuSAR_H1H1_STR*_azbias1024.tif`  | Slant‑range detected image (GeoTIFF).        |
+| `*.slc`     | `SLC_KuSAR_H1H1_STR*_azbias1024.slc`  | Single Look Complex (phase‑preserving) data. |
 
 ### 5. Scripts/
 MATLAB helper scripts to read and visualise the data. All scripts are provided with English comments.
@@ -94,4 +97,4 @@ Postdoctoral Researcher
 National University of Defense Technology (NUDT)
 Email: lwj2150508321@sina.com
 
-Last updated: 2026-04-05
+Last updated: 2026-04-30
