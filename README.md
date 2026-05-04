@@ -49,7 +49,7 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
   *[Demo script](Figure/fig_RGB.png) for RGB data is provided.*
 
 - **Raw data (original full‑scene SAR images)**  
-  Location: `.\Raw data`  
+  Location: `.\Raw_data`  
   *Includes [un‑chipped SAR scenes](Documentation/Origin.md) with corresponding metadata (auxiliary files, raw echoes, and GeoTIFF images).*
 
 ### 🚧 In Progress
