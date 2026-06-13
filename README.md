@@ -1,4 +1,11 @@
 <h1 align="center"> ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild </h1> 
+<figure>
+<div align="center">
+<img src=Figure/fig_logo.jpg width="95%">
+<div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999; padding: 2px;">
+</div>
+</div>
+</figure>
 
 <h5 align="center"><em> Yongxiang Liu, Weijie Li, Li Liu, Jie Zhou, Bowen Peng, Yafei Song, Xuying Xiong, Wei Yang, Tianpeng Liu, Zhen Liu, Xiang Li </em></h5>
 
