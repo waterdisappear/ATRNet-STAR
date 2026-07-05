@@ -1,100 +1,348 @@
-# ATRNet-STAR Subset – Sandstone (30° Grazing Angle, 0°–330° Azimuth, 30° Step)
+# ATRNet-STAR Subset – Sandstone (30° Grazing Angle)
 
-This subset contains 12 Ku-band fully polarimetric SAR acquisitions over a sandstone scene with a grazing angle of 30° and azimuth angles spanning 0°–330° in 30° increments (12 azimuth settings). It is provided as a sample for researchers who need large image, raw echoes, and auxiliary files across multiple viewing directions.
+This subset contains 12 Ku-band fully polarimetric SAR acquisitions over a sandstone scene (43 vehicles) with a **30° grazing angle** and azimuth angles **0°–330°** in 30° steps. Each strip includes annotations, auxiliary parameters, POS trajectory, raw echoes, and focused products.
+
+---
 
 ## Data Overview
-- Target scene: Sandstone (terrain type)
-- Grazing angle: 30°
-- Azimuth angles: 0°, 30°, 60°, 90°, 120°, 150°, 180°, 210°, 240°, 270°, 300°, 330° (30° step; 12 files/sets)
-- Band: Ku
-- Polarizations: HH, HV, VH, VV
-- Strip IDs: STR1–STR12 (see per-azimuth subfolders)
-- Azimuth starting pulse: 1024 (as indicated by azbias1024 in filenames)
+
+| Item | Value |
+|------|-------|
+| Scene | Sandstone / 沙地背景 |
+| Grazing angle | 30° |
+| Azimuth | 0°, 30°, …, 330° (12 strips, STR1–STR12) |
+| Band | Ku (~14.6 GHz) |
+| Polarizations | HH, HV, VH, VV |
+| Azimuth start pulse | **1024** (`azbias1024` in filenames) |
+
+### Strip ↔ folder mapping
+
+| Strip | Folder | POS file |
+|-------|--------|----------|
+| STR1 | `30deg_0azi_ID1` | `Pos/ID1-11/export_Mission 1.out` |
+| STR2 | `30deg_60azi_ID2` | ID1-11 |
+| STR3 | `30deg_120azi_ID3` | ID1-11 |
+| STR4 | `30deg_180azi_ID4` | ID1-11 |
+| STR5 | `30deg_240azi_ID5` | ID1-11 |
+| STR6 | `30deg_300azi_ID6` | ID1-11 |
+| STR7 | `30deg_30azi_ID7` | ID1-11 |
+| STR8 | `30deg_90azi_ID8` | ID1-11 |
+| STR9 | `30deg_150azi_ID9` | ID1-11 |
+| STR10 | `30deg_210azi_ID10` | ID1-11 |
+| STR11 | `30deg_270azi_ID11` | ID1-11 |
+| STR12 | `30deg_330azi_ID12` | `Pos/ID12/export_Mission 1.out` |
+
+---
 
 ## Folder Structure
 
-Origin/
-├── Subset_Sandstone/
-│   ├── Annotation/   # Annotation files (per azimuth folder, target bounding boxes, categories, etc.)
-│   ├── Assistfile/   # Auxiliary data (per azimuth folder; radar parameters, trajectory, attitude)
-│   ├── Rawfile/      # Raw echo data (per azimuth folder; binary, complex)
-│   └── Result/       # Focused products (per azimuth folder; GeoTIFF/SLC)
-├── Scripts/          # MATLAB scripts to read and visualise the data
-└── Readme.md         # This file
-
-Each data folder under `Subset_Sandstone/` is organized by azimuth, e.g. `30deg_0azi_ID1`, `30deg_30azi_ID7`, …, `30deg_330azi_ID12`.
-
-## Detailed File Descriptions
-
-### 1. Annotation/
-Contains annotation files that provide ground‑truth labels for the targets in the scene.
-
-| File type | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| `*.xml`   | Target‑level annotations (e.g., bounding box coordinates, category labels). The exact format follows the ATRNet‑STAR dataset specification. For details, refer to the official dataset documentation or contact the authors. |
-
-### 2. Assistfile/
-Contains auxiliary files that describe radar system parameters, platform trajectory, and attitude.
-
-| File pattern                       | Description                                                  |
-| ---------------------------------- | ------------------------------------------------------------ |
-| `AUX_KuSAR_*_STR*_azbias1024.dat`   | Binary parameter file (radar settings, geometry, Doppler, etc.). Read with `ParaRead.m`. |
-| `AUX_KuSAR_*_STR*_azbias1024.log`   | Text log file (may contain additional metadata).             |
-| `RAW_XSAR_*_STR*_azbias1024*.xml`   | XML metadata describing the raw data acquisition (pattern may vary by azimuth folder). |
-
-**Polarization variants** (replace `*` with `H1H1`, `H1V1`, `V1H1`, `V1V1`):
-- `H1H1` → HH
-- `H1V1` → HV
-- `V1H1` → VH
-- `V1V1` → VV
-
-### 3. Rawfile/
-Contains the raw radar echo data (before range compression or focusing).
-
-| File pattern              | Description                                                  |
-| ------------------------- | ------------------------------------------------------------ |
-| `RAW_XSAR_*_STR*.dat`     | Raw echo data in binary format (complex, interleaved I/Q). Use `RawDataRead.m` to inspect. |
-
-### 4. Result/
-Contains focused SAR products: GeoTIFF images (amplitude) and Single Look Complex (SLC) files.
-
-| File type   | Example                               | Description                                  |
-| ----------- | ------------------------------------- | -------------------------------------------- |
-| `DOM_*.tif` | `DOM_KuSAR_H1H1_STR*_azbias1024.tif`  | Ground‑range detected image (GeoTIFF).       |
-| `IMG_*.tif` | `IMG_KuSAR_H1H1_STR*_azbias1024.tif`  | Slant‑range detected image (GeoTIFF).        |
-| `*.slc`     | `SLC_KuSAR_H1H1_STR*_azbias1024.slc`  | Single Look Complex (phase‑preserving) data. |
-
-### 5. Scripts/
-MATLAB helper scripts to read and visualise the data. All scripts are provided with English comments.
-
-| Script          | Purpose                                                      |
-| --------------- | ------------------------------------------------------------ |
-| `ParaRead.m`    | Read an AUX parameter file (`.dat`). Displays radar parameters, trajectory, and attitude. Generates plots. |
-| `POSRead.m`     | Read a POS binary file (`.out`) to extract altitude, yaw, pitch, roll, latitude, longitude. |
-| `RawDataRead.m` | Read the raw echo file (`.dat`) and plot time‑domain / frequency‑domain signals. |
-
-**Basic usage example** (inside MATLAB):
-```matlab
-% 1. Read AUX file
-ParaRead;   % modify the 'file' variable inside the script to point to your AUX file
-
-% 2. Read raw echo
-RawDataRead; % change the fid path to your raw data file
-
-% 3. Read POS data
-POSRead;     % change the fid path to your POS file
+```
+Raw_data/
+├── Readme.md
+├── Scripts/            # MATLAB scripts (ParaRead, POSRead, RawDataRead)
+└── Subset_Sandstone/
+    ├── Annotation/     # target bounding-box labels (.xml)
+    ├── Assistfile/     # AUX, acquisition XML, mission AssistData
+    ├── Pos/            # Applanix POS (.out)
+    ├── Rawfile/        # raw echo (.dat), one file per strip
+    └── Result/         # focused DOM/IMG/SLC products (.tif/.slc)
 ```
 
-## Important Notes
-- Data usage: This subset is released under the same terms as the full ATRNet-STAR dataset (CC BY-NC 4.0). Redistribution to third parties is prohibited without written consent from the authors.
-- File naming: The pattern azbias1024 indicates that the data start at pulse index 1024 in the azimuth direction. This can be used to align chips with the full scene if needed.
+---
+
+## Assistfile/ layout
+
+Each azimuth subfolder contains **per-polarization AUX files** and **one acquisition XML**:
+
+| Pattern | Description | Copied from (original data) |
+|---------|-------------|----------------------------|
+| `AUX_KuSAR_*_STR*_azbias1024.dat` | Binary radar/geometry/trajectory → `ParaRead.m` | Original `result/IDn/` |
+| `AUX_KuSAR_*_azbias1024.log` | Text summary | Original `result/IDn/` |
+| `RAW_XSAR_*_STR*.xml` | Acquisition metadata (MiniSAR XML) | Original `result/IDn/` |
+
+**Mission-level merged auxiliary** at `Assistfile/` root:
+
+| File in subset | Original source | Status |
+|----------------|-----------------|--------|
+| `AssistData_ID1-11.dat` | `AssistFile/AssistData.dat` | **Copied** (~865 MB) |
+| `AssistData_ID12.dat` | `AssistFile-ID12/AssistData.dat` | **Copied** (~839 MB) |
+
+> **Note:** The same per-strip `AUX_*.dat/.log` files are also copied into `Result/` (duplicate of `Assistfile/`, matching the original `result/` layout).
+>
+> **Verified layout:** each `Assistfile/` azimuth folder has 9 files (4× `.dat`, 4× `.log`, 1× `.xml`); root has two `AssistData_*.dat` files.
+
+Polarization codes: `H1H1`=HH, `H1V1`=HV, `V1H1`=VH, `V1V1`=VV.
+
+---
+
+## Other folders
+
+### Annotation/
+Target labels (`*.xml`) for DOM and IMG products (bounding boxes, categories).
+
+### Rawfile/
+One `RAW_XSAR_*_STR*.dat` per strip. Binary raw echoes before focusing.
+
+### Result/
+| Type | Example | Description |
+|------|---------|-------------|
+| `DOM_*.tif` | `DOM_KuSAR_H1H1_STR1_azbias1024.tif` | Ground-range detected image |
+| `DOM_*_float.tif` | same base name + `_float` | Float-amplitude ground-range image |
+| `IMG_*.tif` | `IMG_KuSAR_H1H1_STR1_azbias1024.tif` | Slant-range detected image |
+| `SLC_*.slc` | `SLC_KuSAR_H1H1_STR1_azbias1024.slc` | Single-look complex data |
+| `AUX_KuSAR_*.dat` / `*.log` | same as Assistfile | Duplicate copy from original `result/IDn/` (17 files per strip with imaging products) |
+
+### Pos/
+Applanix POS export: `export_Mission 1.out` (+ optional `.log`). STR1–STR11 share one file; STR12 uses a separate acquisition day file.
+
+---
+
+## MATLAB scripts
+
+All scripts are in **`Scripts/`**. In MATLAB, `cd` to that folder, then run:
+
+```matlab
+ParaRead      % edit 'file' path to your AUX .dat
+POSRead       % set stripId = 1..12
+RawDataRead   % set stripId and pulseIndex (default 1024 = azbias1024)
+```
+
+Comments are **English + Chinese** (UTF-8). If MATLAB shows garbled Chinese, set Preferences > MATLAB > General > UTF-8.
+
+---
+
+## FAQ
+
+### Q1: Where is the POS `.out` file?
+Under `Subset_Sandstone/Pos/`. Use `POSRead.m`. High-rate INS/GPS is also summarized in AUX trajectory fields (`lat_ref`, `lng_ref`, `alt_ref`).
+
+### Q2: What coordinate system are x, y, z in ParaRead?
+**Local earth-fixed frame** (North-East-Down style platform frame: X = nose, Y = wing, Z = belly). GPS latitude/longitude/altitude are in `lat_ref`, `lng_ref`, `alt_ref` (degrees / degrees / metres).
+
+### Q3: Pulse width Tr and chirp rate Kr?
+Read from AUX: field `Tr` (s), `Br` (Hz), `Kr_sign`. Compute:
+
+`Kr = (Br / Tr) * Kr_sign`
+
+`ParaRead.m` prints these automatically.
+
+### Q4: How do AUX parameters align with raw echoes?
+- `pulse_num` in AUX = azimuth lines in the **focused image**.
+- Filename tag `azbias1024` → **image row 1 ↔ raw echo pulse 1024**.
+- General rule: **image row i ↔ raw pulse (1024 + i − 1)** for i = 1 … `pulse_num`.
+- Each raw pulse: **128-byte header** (platform pose) + `pulse_len` × (I1, Q1, I2, Q2) int16 samples.
+
+### Q5: Full-pol raw data layout?
+- `op_mode = 1` (full polarimetric), `pp_mode = 1` (ping-pong transmit).
+- Dual RF channels, sample order: **I1, Q1, I2, Q2** (int16).
+- Four polarizations reconstructed from alternating H/V transmit pulses (two pulses per pol set).
+
+---
+
+## AUX `.dat` header (512 bytes, summary)
+
+| # | Field | Type | Unit / note |
+|---|-------|------|-------------|
+| 1 | op_mode | int64 | 0 single / 1 full-pol / 2 interferometric |
+| 2 | pp_mode | int64 | 0 standard / 1 ping-pong |
+| 3 | Kr_sign | int64 | 0 negative / 1 positive chirp |
+| 4 | fc | double | Hz |
+| 5 | fd | double | Hz (IF) |
+| 6 | Br | double | Hz |
+| 7 | Fsr | double | Hz |
+| 8 | Tr | double | s (pulse width) |
+| 9 | theta_bw | double | rad |
+| 10 | Ba | double | Hz |
+| 11 | PRF | double | Hz |
+| 12 | pulse_num | int64 | azimuth lines |
+| 13 | pulse_len | int64 | range bins |
+| … | (geometry, Doppler, APC, scene corners) | … | see ParaRead.m |
+| — | + trajectory arrays | double[] | 7×pulse_num ref + 10×pulse_num_orig high-rate |
+
+---
+
+## Raw echo packet format
+
+```
+bytes per pulse = 128 + pulse_len × 8
+                = header + pulse_len × (I1,Q1,I2,Q2 as int16)
+```
+
+Example (STR1): `pulse_len = 3280` → **26 368 bytes/pulse**.
+
+---
+
+## Important notes
+
+- **License:** CC BY-NC 4.0 (same as ATRNet-STAR). No redistribution without author consent.
+- **AUX duplication:** Per-strip `AUX_*.dat/.log` exist in both `Assistfile/` and `Result/` (same as original data layout).
+- **AssistData_*.dat:** Large mission-level files; use per-pol `AUX_KuSAR_*.dat` for strip-specific processing.
 
 ## Contact
-For questions or to request additional data (e.g., more strips, or raw data subsets), please contact:
 
-Weijie Li
-Postdoctoral Researcher
-National University of Defense Technology (NUDT)
-Email: lwj2150508321@sina.com
+Weijie Li — Postdoctoral Researcher, NUDT — lwj2150508321@sina.com
 
-Last updated: 2026-04-30
+Last updated: 2026-07-05
+
+---
+
+# ATRNet-STAR 子集 – 沙地场景（30° 擦地角）
+
+本子集包含沙地背景（43 辆车）Ku 波段 **全极化** SAR 数据，**擦地角 30°**，方位角 **0°–330°**（步进 30°，共 12 条带 STR1–STR12）。每条带提供标注、辅助参数、POS 轨迹、原始回波及聚焦产品。
+
+---
+
+## 数据概览
+
+| 项目 | 说明 |
+|------|------|
+| 场景 | 沙地背景 |
+| 擦地角 | 30° |
+| 方位角 | 0°, 30°, …, 330°（12 条带） |
+| 波段 | Ku（约 14.6 GHz） |
+| 极化 | HH, HV, VH, VV |
+| 方位起始脉冲 | **1024**（文件名 `azbias1024`） |
+
+### 条带与文件夹对应
+
+见上表（STR1→`30deg_0azi_ID1`，…，STR12→`30deg_330azi_ID12`；STR1–11 共用 `Pos/ID1-11/`，STR12 用 `Pos/ID12/`）。
+
+---
+
+## 目录结构
+
+```
+Raw_data/
+├── Readme.md
+├── Scripts/            # MATLAB 脚本（ParaRead、POSRead、RawDataRead）
+└── Subset_Sandstone/
+    ├── Annotation/     # 目标标注 (.xml)
+    ├── Assistfile/     # AUX、采集 XML、任务级 AssistData
+    ├── Pos/            # Applanix POS (.out)
+    ├── Rawfile/        # 原始回波 (.dat)，每条带 1 个
+    └── Result/         # 聚焦产品 (.tif / .slc)
+```
+
+---
+
+## Assistfile/ 组织方式
+
+每个方位角子文件夹含 **4 极化 AUX** + **1 个采集 XML**：
+
+| 文件模式 | 说明 | 复制来源（原始数据） |
+|---------|------|---------------------|
+| `AUX_KuSAR_*_STR*_azbias1024.dat` | 二进制雷达/几何/轨迹 → `ParaRead.m` | 原始 `result/IDn/` |
+| `AUX_KuSAR_*_azbias1024.log` | 文本摘要 | 原始 `result/IDn/` |
+| `RAW_XSAR_*_STR*.xml` | 采集元数据（MiniSAR XML） | 原始 `result/IDn/` |
+
+**任务级合并辅助文件**（`Assistfile/` 根目录）：
+
+| 子集文件 | 原始来源 | 状态 |
+|---------|---------|------|
+| `AssistData_ID1-11.dat` | `AssistFile/AssistData.dat` | **已复制**（约 865 MB） |
+| `AssistData_ID12.dat` | `AssistFile-ID12/AssistData.dat` | **已复制**（约 839 MB） |
+
+> **说明：** 分条带 `AUX_*.dat/.log` 在 `Assistfile/` 与 `Result/` 中各有一份（与原始 `result/` 目录结构一致，允许重复）。
+>
+> **已核对：** 每个 `Assistfile/` 方位角子文件夹 9 个文件；根目录 2 个 `AssistData_*.dat`。
+
+极化代码：`H1H1`=HH，`H1V1`=HV，`V1H1`=VH，`V1V1`=VV。
+
+---
+
+## 其他目录
+
+### Annotation/
+DOM / IMG 对应的目标标注 XML（边界框、类别等）。
+
+### Rawfile/
+每条带 1 个 `RAW_XSAR_*_STR*.dat` 原始回波文件。
+
+### Result/
+| 类型 | 说明 |
+|------|------|
+| `DOM_*.tif` | 地距检测图像 |
+| `DOM_*_float.tif` | 地距浮点幅度图 |
+| `IMG_*.tif` | 斜距检测图像 |
+| `SLC_*.slc` | 单视复数据 |
+| `AUX_KuSAR_*.dat` / `*.log` | 与 Assistfile 相同，自原始 `result/IDn/` 复制（每条带与成像产品并存） |
+
+### Pos/
+Applanix POS 导出文件 `export_Mission 1.out`（及可选 `.log`）。
+
+---
+
+## MATLAB 脚本
+
+脚本均在 **`Scripts/`** 目录。在 MATLAB 中 `cd` 到该目录后运行：
+
+```matlab
+ParaRead      % 修改 file 指向 AUX .dat
+POSRead       % 设置 stripId = 1..12
+RawDataRead   % 设置 stripId 与 pulseIndex（默认 1024）
+```
+
+注释为 **中英双语**（UTF-8）。若 MATLAB 中文乱码，请在 预设 > MATLAB > 常规 中启用 UTF-8。
+
+---
+
+## 常见问题（FAQ）
+
+### Q1：POS 的 `.out` 在哪里？
+在 `Subset_Sandstone/Pos/`，用 `POSRead.m` 读取。AUX 轨迹段亦含 GPS（`lat_ref/lng_ref/alt_ref`）。
+
+### Q2：ParaRead 中 x,y,z 是什么坐标系？
+**大地平面三维坐标系**（X 机头、Y 机翼、Z 机腹）。GPS 经纬高见 `lat_ref`、`lng_ref`、`alt_ref`（度/度/米）。
+
+### Q3：脉冲时宽 Tr 与调频率 Kr？
+AUX 中读取 `Tr`、`Br`、`Kr_sign`，计算：**Kr = (Br / Tr) × Kr_sign**。`ParaRead.m` 会自动打印。
+
+### Q4：AUX 与回波脉冲如何对应？
+- AUX 中 `pulse_num` = 聚焦图像方位向行数。
+- `azbias1024` 表示图像第 1 行对应原始回波第 **1024** 个脉冲。
+- 一般：**图像第 i 行 ↔ 回波第 (1024 + i − 1) 个脉冲**。
+- 每脉冲：**128 字节包头** + `pulse_len` × (I1,Q1,I2,Q2) int16。
+
+### Q5：全极化回波格式？
+- `op_mode=1` 全极化，`pp_mode=1` 乒乓发射。
+- 双通道存储顺序：**I1, Q1, I2, Q2**（int16）。
+- 四极化由 H/V 交替发射的两脉冲组合得到。
+
+---
+
+## AUX `.dat` 头文件（512 字节，摘要）
+
+| 序号 | 字段 | 类型 | 说明 |
+|------|------|------|------|
+| 1 | op_mode | int64 | 0 单通道 / 1 全极化 / 2 干涉 |
+| 2 | pp_mode | int64 | 0 标准 / 1 乒乓 |
+| 3 | Kr_sign | int64 | 0 负调频 / 1 正调频 |
+| 4–8 | fc, fd, Br, Fsr, Tr | double | 载频、中频、带宽、采样率、脉宽 |
+| 12–13 | pulse_num, pulse_len | int64 | 方位行数、距离点数 |
+| … | 几何、多普勒、APC、四角经纬度 | … | 见 ParaRead.m |
+| — | 轨迹数组 | double[] | 7×pulse_num 参考 + 10×pulse_num_orig 高采样 |
+
+---
+
+## 原始回波包格式
+
+```
+每脉冲字节数 = 128 + pulse_len × 8
+             = 包头 + pulse_len × (I1,Q1,I2,Q2，各 int16)
+```
+
+STR1 示例：`pulse_len=3280` → 每脉冲 **26 368** 字节。
+
+---
+
+## 重要说明
+
+- **许可：** CC BY-NC 4.0，未经作者同意不得向第三方转发。
+- **AUX 重复存放：** 分条带 `AUX_*.dat/.log` 在 `Assistfile/` 与 `Result/` 中均有（与原始数据一致）。
+- **AssistData_*.dat：** 体积较大的任务级文件；条带处理优先用分极化 `AUX_KuSAR_*.dat`。
+
+## 联系方式
+
+李卫杰 — 国防科技大学 — lwj2150508321@sina.com
+
+最后更新：2026-07-05
