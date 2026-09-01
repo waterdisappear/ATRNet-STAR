@@ -328,9 +328,9 @@ Please refer to the <a href="ATRBench/README.md">ATRBench README</a> for details
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
   title={{ATRNet-STAR}: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild}, 
   year={2026},
-  volume={},
-  number={},
-  pages={1-18},
+  volume={48},
+  number={6},
+  pages={6735-6753},
   doi={10.1109/TPAMI.2026.3658649}
 }
 
