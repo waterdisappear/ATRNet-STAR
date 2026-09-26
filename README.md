@@ -1,3 +1,7 @@
+<p align="right">
+  <b>English</b> | <a href="./README_zh.md">中文</a>
+</p>
+
 <h1 align="center"> ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild </h1> 
 <figure>
 <div align="center">
@@ -43,7 +47,7 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
 
 ---
 
-## 📢 Updates (2026-07-05)
+## 📢 Updates (2026-09-26)
 
 ### ✅ Released Data
 
@@ -57,7 +61,7 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
 
 - **Raw data (original full‑scene SAR images)**  
   Location: `.\Raw_data`  
-  *Includes [un‑chipped SAR scenes](Documentation/Origin.md) with corresponding metadata (auxiliary files, raw echoes, and GeoTIFF images).*
+  *Un‑chipped full‑scene SAR imagery for [Sandstone](Documentation/Origin.md) and [City](Documentation/Origin_City.md), with assist files, raw echoes, and GeoTIFF products.*
 
 ### 🚧 In Progress
 
