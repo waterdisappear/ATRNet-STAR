@@ -34,6 +34,8 @@
     <a href="https://www.scidb.cn/detail?dataSetId=d9ea44937cb94fba9befe9cdb15ffeed"><img src="https://img.shields.io/badge/下载-科学数据银行-purple"></a>	
 </p>
 
+<p align="center"><sub>Baidu Netdisk access is via the questionnaire badge above. When pasting the survey or shared link, a trailing newline from copy-paste can break the URL—paste as a single line.</sub></p>
+
 This is the official repository for the dataset **“ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild”**. If you find our work useful, please give us a star ⭐ on GitHub and cite our paper (BibTeX format at the end).
 
 <figure>

@@ -31,8 +31,10 @@
     <a href="https://huggingface.co/datasets/waterdisappear/ATRNet-STAR"><img src="https://img.shields.io/badge/Download-Hugging Face-F5C935"></a>
     <a href="https://www.wjx.top/vm/YOHgMtK.aspx"><img src="https://img.shields.io/badge/下载-百度云-blue"></a>
 	<a href="https://radars.ac.cn/web/data/getData?dataType=GDHuiYan-ATRNet"><img src="https://img.shields.io/badge/下载-雷达学报-red"></a>
-    <a href="https://www.scidb.cn/detail?dataSetId=d9ea44937cb94fba9befe9cdb15ffeed"><img src="https://img.shields.io/badge/下载-科学数据银行-purple"></a>
+    <a href="https://www.scidb.cn/detail?dataSetId=d9ea44937cb94fba9befe9cdb15ffeed"><img src="https://img.shields.io/badge/下载-科学数据银行-purple"></a>	
 </p>
+
+<p align="center"><sub>百度云需通过上方「下载-百度云」问卷获取链接。复制问卷或网盘地址时容易多带一个回车，导致链接失效，请粘贴为单行。</sub></p>
 
 本仓库为数据集 **「ATRNet-STAR: A Large Dataset and Benchmark Towards Remote Sensing Object Recognition in the Wild」** 的官方发布页。若对您的研究有帮助，欢迎在 GitHub 上点亮 Star ⭐，并按文末 BibTeX 格式引用相关论文。
 
