@@ -174,12 +174,13 @@ Polarization code: `H1H1` = HH.
 ## Important notes
 
 - **License:** CC BY-NC 4.0 (same as ATRNet-STAR). No redistribution without author consent.
-- Some strips use non-1024 `azbias` tags (e.g. `azbias561`); always read the starting pulse from the filename / AUX.
+- Some strips use non-1024 `azbias` tags (e.g. `azbias561`); the starting pulse is given by the filename / AUX.
 - Prefer per-strip `AUX_XSAR_H1H1_*.dat` for geometry; mission `AssistData_*.dat` files are large merged auxiliaries.
+- Imaging XML fields such as `RangeStartPoint` / `RangePoints` / `AzimuthOffset` / `AzimuthPoints` describe the focusing job window; per-pol AUX `pulse_num` × range size is the focused HH image. `GPSLeap` is the GPS–UTC leap-second offset. `IfExcuteMoCo` / `IfExcutePGA` are job flags; this City package releases ordinary `SLC_*` / `IMG_*` (no PGA filename tag). See also [Raw_data.md](./Raw_data.md).
 
 ## Contact
 
 Weijie Li — Postdoctoral Researcher, NUDT — lwj2150508321@sina.com
 
-Last updated: 2026-09-26
+Last updated: 2026-10-15
 

@@ -47,7 +47,13 @@ Our ATRNet-STAR dataset contains 40 distinct target types, collected to replace 
 
 ---
 
-## 📢 Updates (2026-09-26)
+## 📢 Updates
+
+### 2026-10-15
+
+- Clarified **Raw_data** documentation: on-disk RAW frame length, XML range/azimuth windows vs focused AUX size, `azbias`, `detdelay`/`GPSLeap`, MoCo/PGA flags vs released `Result` products, and phase notes. See [Raw_data.md](Documentation/Raw_data.md) and [Sandstone Origin](Documentation/Origin.md).
+
+### 2026-09-26
 
 ### ✅ Released Data
 

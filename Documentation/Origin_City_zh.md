@@ -174,12 +174,13 @@ Raw_data/
 ## 重要说明
 
 - **许可：** CC BY-NC 4.0，未经作者同意不得向第三方转发。
-- 部分条带 `azbias` 并非 1024（如 `azbias561`），请以文件名 / AUX 为准。
+- 部分条带 `azbias` 并非 1024（如 `azbias561`），以文件名 / AUX 为准。
 - 条带处理优先用分极化 `AUX_XSAR_H1H1_*.dat`；`AssistData_*.dat` 为体积较大的任务级文件。
+- 成像 XML 中的 `RangeStartPoint` / `RangePoints` / `AzimuthOffset` / `AzimuthPoints` 描述聚焦任务窗口；分极化 AUX 的 `pulse_num` 与距离向尺寸为聚焦后 HH 图像大小。`GPSLeap` 为 GPS–UTC 闰秒。`IfExcuteMoCo` / `IfExcutePGA` 为任务配置标志；本城区包发布的是常规 `SLC_*` / `IMG_*`（文件名不含 PGA 标记）。详见 [Raw_data.md](./Raw_data.md)。
 
 ## 联系方式
 
 李玮杰 — 国防科技大学 — lwj2150508321@sina.com
 
-最后更新：2026-09-26
+最后更新：2026-10-15
 

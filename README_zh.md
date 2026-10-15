@@ -47,7 +47,13 @@ ATRNet-STAR 包含 40 类目标，旨在替代沿用已久但仍被广泛使用�
 
 ---
 
-## 📢 更新（2026-09-26）
+## 📢 更新
+
+### 2026-10-15
+
+- 补充并更正 **Raw_data** 说明：磁盘 RAW 帧长、XML 距离/方位窗与聚焦 AUX 尺寸的区别、`azbias`、`detdelay`/`GPSLeap`、MoCo/PGA 配置标志与已发布 `Result` 产品的关系，以及相位相关说明。详见 [Raw_data.md](Documentation/Raw_data.md) 与 [沙地 Origin](Documentation/Origin_zh.md)。
+
+### 2026-09-26
 
 ### ✅ 已发布数据
 
