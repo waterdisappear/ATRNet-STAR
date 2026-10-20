@@ -24,7 +24,7 @@
 
 </div>
 
-This subset contains **72** X-band **HH-polarization** SAR acquisitions over an urban / city scene (43 vehicles) with a **30° grazing angle** and azimuth angles **0°–355°** in **5°** steps. Each strip includes auxiliary parameters and focused products (**IMG** + **SLC**). Annotation and raw echo data are **not** included.
+This subset contains **72** X-band **HH-polarization** SAR acquisitions over an urban / city scene with a **30° grazing angle** and azimuth angles **0°–355°** in **5°** steps. Each strip includes auxiliary parameters and focused products (**IMG** + **SLC**). Annotation and raw echo data are **not** included.
 
 > Compared with [Subset_Sandstone](./Origin.md): City uses **X-band**, **5°** azimuth sampling (**72** views), and **HH only**; Sandstone uses **Ku-band**, **30°** sampling (**12** views), and **quad-pol** with Annotation / Raw / Pos.
 

@@ -26,7 +26,7 @@
 
 </div>
 
-This subset contains 12 Ku-band fully polarimetric SAR acquisitions over a sandstone scene (43 vehicles) with a **30° grazing angle** and azimuth angles **0°–330°** in 30° steps. Each strip includes annotations, auxiliary parameters, POS trajectory, raw echoes, and focused products.
+This subset contains 12 Ku-band fully polarimetric SAR acquisitions over a sandstone scene with a **30° grazing angle** and azimuth angles **0°–330°** in 30° steps. Each strip includes annotations, auxiliary parameters, POS trajectory, raw echoes, and focused products.
 
 ---
 
@@ -80,22 +80,20 @@ Raw_data/
 
 Each azimuth subfolder contains **per-polarization AUX files** and **one acquisition XML**:
 
-| Pattern | Description | Copied from (original data) |
-|---------|-------------|----------------------------|
-| `AUX_KuSAR_*_STR*_azbias1024.dat` | Binary radar/geometry/trajectory → `ParaRead.m` | Original `result/IDn/` |
-| `AUX_KuSAR_*_azbias1024.log` | Text summary | Original `result/IDn/` |
-| `RAW_XSAR_*_STR*.xml` | Acquisition metadata (MiniSAR XML) | Original `result/IDn/` |
+| Pattern | Description |
+|---------|-------------|
+| `AUX_KuSAR_*_STR*_azbias1024.dat` | Binary radar/geometry/trajectory → `ParaRead.m` |
+| `AUX_KuSAR_*_azbias1024.log` | Text summary |
+| `RAW_XSAR_*_STR*.xml` | Acquisition / imaging-job metadata (MiniSAR XML) |
 
 **Mission-level merged auxiliary** at `Assistfile/` root:
 
-| File in subset | Original source | Status |
-|----------------|-----------------|--------|
-| `AssistData_ID1-11.dat` | `AssistFile/AssistData.dat` | **Copied** (~865 MB) |
-| `AssistData_ID12.dat` | `AssistFile-ID12/AssistData.dat` | **Copied** (~839 MB) |
+| File | Description |
+|------|-------------|
+| `AssistData_ID1-11.dat` | Merged auxiliary for STR1–STR11 |
+| `AssistData_ID12.dat` | Merged auxiliary for STR12 |
 
-> **Note:** The same per-strip `AUX_*.dat/.log` files are also copied into `Result/` (duplicate of `Assistfile/`, matching the original `result/` layout).
->
-> **Verified layout:** each `Assistfile/` azimuth folder has 9 files (4× `.dat`, 4× `.log`, 1× `.xml`); root has two `AssistData_*.dat` files.
+> **Note:** The same per-strip `AUX_*.dat/.log` files also appear under `Result/` (alongside the imaging products).
 
 Polarization codes: `H1H1`=HH, `H1V1`=HV, `V1H1`=VH, `V1V1`=VV.
 
@@ -116,7 +114,7 @@ One `RAW_XSAR_*_STR*.dat` per strip. Binary raw echoes before focusing.
 | `DOM_*_float.tif` | same base name + `_float` | Float-amplitude ground-range image |
 | `IMG_*.tif` | `IMG_KuSAR_H1H1_STR1_azbias1024.tif` | Slant-range detected image |
 | `SLC_*.slc` | `SLC_KuSAR_H1H1_STR1_azbias1024.slc` | Single-look complex data |
-| `AUX_KuSAR_*.dat` / `*.log` | same as Assistfile | Duplicate copy from original `result/IDn/` (17 files per strip with imaging products) |
+| `AUX_KuSAR_*.dat` / `*.log` | same as Assistfile | Also present next to imaging products |
 
 ### Pos/
 Applanix POS export: `export_Mission 1.out` (+ optional `.log`). STR1–STR11 share one file; STR12 uses a separate acquisition day file.
@@ -229,11 +227,11 @@ bytes per pulse          = 128 + 50000 × 4 = 200128
 ## Important notes
 
 - **License:** CC BY-NC 4.0 (same as ATRNet-STAR). No redistribution without author consent.
-- **AUX duplication:** Per-strip `AUX_*.dat/.log` exist in both `Assistfile/` and `Result/` (same as original data layout).
+- **AUX duplication:** Per-strip `AUX_*.dat/.log` exist in both `Assistfile/` and `Result/`.
 - **AssistData_*.dat:** Large mission-level files; strip-level work uses per-pol `AUX_KuSAR_*.dat`.
 
 ## Contact
 
 Weijie Li — Postdoctoral Researcher, NUDT — lwj2150508321@sina.com
 
-Last updated: 2026-10-15
+Last updated: 2026-10-20

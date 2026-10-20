@@ -24,7 +24,7 @@
 
 </div>
 
-本子集包含沙地背景（43 辆车）Ku 波段 **全极化** SAR 数据，**擦地角 30°**，方位角 **0°–330°**（步进 30°，共 12 条带 STR1–STR12）。每条带提供标注、辅助参数、POS 轨迹、原始回波及聚焦产品。
+本子集包含沙地背景 Ku 波段 **全极化** SAR 数据，**擦地角 30°**，方位角 **0°–330°**（步进 30°，共 12 条带 STR1–STR12）。每条带提供标注、辅助参数、POS 轨迹、原始回波及聚焦产品。
 
 ---
 
@@ -65,22 +65,20 @@ Raw_data/
 
 每个方位角子文件夹含 **4 极化 AUX** + **1 个采集 XML**：
 
-| 文件模式 | 说明 | 复制来源（原始数据） |
-|---------|------|---------------------|
-| `AUX_KuSAR_*_STR*_azbias1024.dat` | 二进制雷达/几何/轨迹 → `ParaRead.m` | 原始 `result/IDn/` |
-| `AUX_KuSAR_*_azbias1024.log` | 文本摘要 | 原始 `result/IDn/` |
-| `RAW_XSAR_*_STR*.xml` | 采集元数据（MiniSAR XML） | 原始 `result/IDn/` |
+| 文件模式 | 说明 |
+|---------|------|
+| `AUX_KuSAR_*_STR*_azbias1024.dat` | 二进制雷达/几何/轨迹 → `ParaRead.m` |
+| `AUX_KuSAR_*_azbias1024.log` | 文本摘要 |
+| `RAW_XSAR_*_STR*.xml` | 采集 / 成像任务元数据（MiniSAR XML） |
 
 **任务级合并辅助文件**（`Assistfile/` 根目录）：
 
-| 子集文件 | 原始来源 | 状态 |
-|---------|---------|------|
-| `AssistData_ID1-11.dat` | `AssistFile/AssistData.dat` | **已复制**（约 865 MB） |
-| `AssistData_ID12.dat` | `AssistFile-ID12/AssistData.dat` | **已复制**（约 839 MB） |
+| 文件 | 说明 |
+|------|------|
+| `AssistData_ID1-11.dat` | STR1–STR11 合并辅助 |
+| `AssistData_ID12.dat` | STR12 合并辅助 |
 
-> **说明：** 分条带 `AUX_*.dat/.log` 在 `Assistfile/` 与 `Result/` 中各有一份（与原始 `result/` 目录结构一致，允许重复）。
->
-> **已核对：** 每个 `Assistfile/` 方位角子文件夹 9 个文件；根目录 2 个 `AssistData_*.dat`。
+> **说明：** 分条带 `AUX_*.dat/.log` 在 `Assistfile/` 与 `Result/`（成像产品旁）中各有一份。
 
 极化代码：`H1H1`=HH，`H1V1`=HV，`V1H1`=VH，`V1V1`=VV。
 
@@ -101,7 +99,7 @@ DOM / IMG 对应的目标标注 XML（边界框、类别等）。
 | `DOM_*_float.tif` | 地距浮点幅度图 |
 | `IMG_*.tif` | 斜距检测图像 |
 | `SLC_*.slc` | 单视复数据 |
-| `AUX_KuSAR_*.dat` / `*.log` | 与 Assistfile 相同，自原始 `result/IDn/` 复制（每条带与成像产品并存） |
+| `AUX_KuSAR_*.dat` / `*.log` | 与 Assistfile 相同，亦存放于成像产品旁 |
 
 ### Pos/
 Applanix POS 导出文件 `export_Mission 1.out`（及可选 `.log`）。
@@ -164,7 +162,7 @@ RawDataRead   % 设置 stripId 与 pulseIndex（默认 1024）
 - 沙地 MiniSAR XML 中的 **`detdelay = 18`** 表示 GPS–UTC 闰秒（与城区 XML 的 `GPSLeap` 同义），不是距离向延时采样数。
 
 ### Q7：不同产品 / 视角之间的相位？
-发布 SLC 保留该产品成像链路的聚焦复相位。本发布未另附全局相位标准化层，亦未提供跨条带绝对相位基准。多视角切片（`Slant_Range`）通过类型名 / `target_id` 对应同一物理车辆；相位相干性在单幅聚焦图像内定义。
+发布 SLC 保留该产品成像链路的聚焦复相位。本发布未另附全局相位标准化层，亦未提供跨条带绝对相位基准。多视角切片元数据使用共享的类型名 / `target_id` 标签；相位相干性在单幅聚焦图像内定义。
 
 ---
 
@@ -207,11 +205,11 @@ AUX 中 `Rmin` 为**脉压后**第一个距离门对应的斜距。
 ## 重要说明
 
 - **许可：** CC BY-NC 4.0，未经作者同意不得向第三方转发。
-- **AUX 重复存放：** 分条带 `AUX_*.dat/.log` 在 `Assistfile/` 与 `Result/` 中均有（与原始数据一致）。
+- **AUX 重复存放：** 分条带 `AUX_*.dat/.log` 在 `Assistfile/` 与 `Result/` 中均有。
 - **AssistData_*.dat：** 体积较大的任务级文件；条带处理使用分极化 `AUX_KuSAR_*.dat`。
 
 ## 联系方式
 
 李玮杰 — 国防科技大学 — lwj2150508321@sina.com
 
-最后更新：2026-10-15
+最后更新：2026-10-20
